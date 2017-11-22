@@ -358,4 +358,15 @@ int Alge(int a,char op1,int b,char op2,int c)
 	else
 		return Ort(Ort(a,op1,b),op2,c);
 }*///附加1
-
+import sys
+filename = sys.argv[0]
+f = open(filename,'r',encoding = 'utf-8')
+line_no = 0
+while True:
+    line_no += 1
+    line = f.readline()
+    if line:
+        print(line_no,':',line)
+    else:
+        break;
+f.close()
