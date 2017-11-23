@@ -370,3 +370,10 @@ while True:
     else:
         break;
 f.close()
+# 输出图案
+import sys
+def a(n):
+    print(('*'*n).center(50))
+line = int(sys.argv[1])
+for i in range(1,2 * line,2):
+    a(line)
