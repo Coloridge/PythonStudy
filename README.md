@@ -377,3 +377,30 @@ def a(n):
 line = int(sys.argv[1])
 for i in range(1,2 * line,2):
     a(line)
+#传递不可变对象
+def plus(a,b):
+    a += b
+    return a
+i  = 100
+i = plus(i,10)
+print(i)
+#随机排序
+import random
+def exchange(a,i,r):
+    temp = a[i]
+    a[i] = a[r]
+    a[r] = temp
+def shuffle(a):
+    n = len(a)
+    for i in range(n):
+        r = random.randrange(i,n)
+        exchange(a,i,r)
+a = [1,2,3,4,5,6]
+shuffle(a)
+print(a)
+#shuffle函数(随机排序列表元素)
+import random
+a = [1,2,3,4,5,6]
+random.shuffle(a)
+print(a)
+
