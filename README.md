@@ -371,9 +371,158 @@ while True:
         break;
 f.close()
 # 输出图案
+/*# include <stdio.h>
+
+int Ort(int a,char op,int b);
+int Alge(int a,char op1,int b,char op2,int c);
+int main()
+{
+	int a,b,c;
+	char op1,op2;
+	scanf("%d",&a);
+	op1 = getchar();
+	scanf("%d",&b);
+	op2 = getchar();
+	scanf("%d",&c);
+	int x = Alge(a,op1,b,op2,c);
+	printf("%d",x);
+	return 0;
+}
+int Ort(int a,char op,int b)
+{
+	switch(op)
+	{
+		case '+':
+			return a + b;
+		case '-':
+			return a - b;
+		case '%':
+			return a % b;
+		case '^':
+			{
+				int sum = 1;
+				for(int i = 0;i < b;i++)
+				{
+					sum *= a;
+				}
+				return sum;
+			}
+	}
+}
+int Alge(int a,char op1,int b,char op2,int c)
+{
+	if((op1 == '+' || op1 == '-') && (op2 == '%' || op2 == '^'))
+		return Ort(a,op1,Ort(b,op2,c));
+	else
+		return Ort(Ort(a,op1,b),op2,c);
+}*///附加1
+/*# include <stdio.h>
+# include <string.h>
+
+void wow(char a[],char);
+int main()
+{
+	char a[40],c;
+	gets(a);
+	c = getchar();
+	wow(a,c);
+	puts(a);
+	return 0;
+}
+void wow(char a[],char c)
+{
+	int i,l = strlen(a);
+	a[2 * l - 1] = '\0';
+	for(i = l - 1;i > 0;i--)
+	{
+		a[2 * i] = a[i];
+		a[2 * i - 1] = c;
+	}
+}*///字符串插入
+# include <stdio.h>
+# include <string.h>
+
+void qaq(char *,char);
+int main()
+{
+	char s[20],c;
+	gets(s);
+	c = getchar();
+	qaq(s,c);
+	puts(s);
+	return 0;
+}
+void qaq(char a[],char c)
+{
+	int i,count = 0,l = strlen(a);
+	for(i = 0;i < l;i++)
+	{
+		if(a[i] == c)
+			count++;
+		else
+			a[i - count] = a[i];
+	}
+	a[i - count] = '\0';
+}//附加2（字符删除）
+/*# include <stdio.h>
+# include <string.h>
+
+void qaq(char *,char);
+int main()
+{
+	char s[20],c;
+	gets(s);
+	c = getchar();
+	qaq(s,c);
+	puts(s);
+	return 0;
+}
+void qaq(char a[],char c)
+{
+	int i,j,count = 0,l = strlen(a);
+	for(i = 0;i < l;i++)
+	{
+		if(a[i] == c)
+			count++;
+		else
+			a[i - count] = a[i];
+	}
+	j = i - count + 1;
+	for(i = 0;i < count - 1;i++,j++)
+		a[j] = c;
+	a[j] = '\0';
+}*///附加3（字符换位）
+
 import sys
 def a(n):
     print(('*'*n).center(50))
 line = int(sys.argv[1])
 for i in range(1,2 * line,2):
     a(line)
+#传递不可变对象
+def plus(a,b):
+    a += b
+    return a
+i  = 100
+i = plus(i,10)
+print(i)
+#随机排序
+import random
+def exchange(a,i,r):
+    temp = a[i]
+    a[i] = a[r]
+    a[r] = temp
+def shuffle(a):
+    n = len(a)
+    for i in range(n):
+        r = random.randrange(i,n)
+        exchange(a,i,r)
+a = [1,2,3,4,5,6]
+shuffle(a)
+print(a)
+#shuffle函数(随机排序列表元素)
+import random
+a = [1,2,3,4,5,6]
+random.shuffle(a)
+print(a)
+
